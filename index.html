@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Meters</title>
+	<style>
+		body{
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			margin: 0;
+			padding: 0;
+		}
+		.widget {
+		  width: calc(50% - 20px);
+		  padding: 10px;
+		  background: #2a333a;
+		  background: -moz-linear-gradient(-45deg, #2a333a 0%, #1d0c1e 100%);
+		  background: -webkit-linear-gradient(-45deg, #2a333a 0%, #1d0c1e 100%);
+		  background: linear-gradient(135deg, #2a333a 0%, #1d0c1e 100%);
+		  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#2a333a', endColorstr='#1d0c1e', GradientType=1);
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  min-height: 400px;
+		  font-family: "Noto", Helvetica, Arial, sans-serif;
+		}
+
+	</style>
+	<link rel="stylesheet" href="main.css">
+	
+</head>
+<body>
+
+<div class="widget">
+  <div id="odometer" data-value="329564"></div>
+</div>
+
+<div class="widget">
+  <div id="thermometer" data-value="37" data-max="90"></div>
+</div>
+
+<div class="widget">
+  <div id="altimeter" data-value="640" data-max="1000"></div>
+</div>
+
+<div class="widget">
+  <div id="anglemeter" data-value="270"></div>
+</div>
+
+
+<div class="widget">
+	<div id="fuelmeter" data-value="60" data-max="100"></div>
+</div>
+
+<div class="widget">
+	<div id="speedometer" data-value="95"></div>
+</div>
+
+<div class="widget">
+	<div id="led" data-value="true"></div>
+</div>
+
+
+
+<script src="meter.js"></script>
+
+<script>
+	var odometer = new Meter({id: 'odometer', lang: 'fr', type: 'odometer', unit: 'km'});
+	var altimeter = new Meter({id: 'altimeter', lang: 'fr', type: 'altimeter', unit: 'm'});
+	var fuelmeter = new Meter({id: 'fuelmeter', lang: 'fr', type: 'fuelmeter', unit: 'L'});
+	var thermometer = new Meter({id: 'thermometer', lang: 'fr', type: 'thermometer', unit: '&deg;C'});
+	var anglemeter = new Meter({id: 'anglemeter', lang: 'fr', type: 'anglemeter', unit: '&deg;'});
+	var speedometer = new Meter({id: 'speedometer', lang: 'fr', type: 'speedometer', unit: 'km/h'});
+	var speedometer = new Meter({id: 'led', lang: 'fr', type: 'led'});
+</script>
+</body>
+</html>

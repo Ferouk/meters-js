@@ -1,0 +1,284 @@
+@keyframes drift {
+  from {
+    transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg); } }
+.altimeter .info,
+.thermometer .info,
+.anglemeter .info,
+.fuelmeter .info,
+.odometer .info {
+  margin-left: 15px; }
+  .altimeter .info h1,
+  .thermometer .info h1,
+  .anglemeter .info h1,
+  .fuelmeter .info h1,
+  .odometer .info h1 {
+    margin: 0;
+    color: #fff; }
+  .altimeter .info h2,
+  .thermometer .info h2,
+  .anglemeter .info h2,
+  .fuelmeter .info h2,
+  .odometer .info h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: normal; }
+  .altimeter .info h1,
+  .thermometer .info h1,
+  .anglemeter .info h1,
+  .fuelmeter .info h1,
+  .odometer .info h1 {
+    font-size: 4rem;
+    position: relative;
+    display: block;
+    height: 70px; }
+    .altimeter .info h1 small,
+    .thermometer .info h1 small,
+    .anglemeter .info h1 small,
+    .fuelmeter .info h1 small,
+    .odometer .info h1 small {
+      font-size: 1rem;
+      vertical-align: top;
+      display: inline-block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.5); }
+
+/**
+*  ODOMETER Styling
+*/
+.odometer {
+  font-size: 3rem;
+  color: #fff;
+  position: relative; }
+  .odometer .num {
+    display: inline-block;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-right: 5px;
+    position: relative; }
+    .odometer .num:after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-color: rgba(0, 0, 0, 0.5); }
+  .odometer .unit {
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: -25px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5); }
+
+/**
+*  ALTIMETER Styling
+*/
+.altimeter {
+  display: flex;
+  flex-direction: row; }
+  .altimeter .meter {
+    width: 80px;
+    display: flex;
+    flex-direction: column-reverse; }
+    .altimeter .meter .altitude {
+      display: block;
+      background-color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+      height: 1px;
+      border-radius: 50%;
+      margin-bottom: 10px; }
+      .altimeter .meter .altitude.active {
+        background-color: #29ABE2; }
+
+/*
+*  THERMOMETER Styling
+*/
+.thermometer {
+  display: flex;
+  flex-direction: row; }
+  .thermometer .meter {
+    width: 50px;
+    display: flex; }
+    .thermometer .meter .bg {
+      position: relative; }
+      .thermometer .meter .bg .circle {
+        position: absolute;
+        bottom: 0;
+        left: 10px;
+        background-color: #F22232;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        z-index: 2;
+        box-shadow: 0 0 8px 4px rgba(242, 34, 50, 0.3), 0 0 8px rgba(242, 34, 50, 0.1); }
+      .thermometer .meter .bg .bar {
+        position: absolute;
+        top: 0;
+        bottom: 25px;
+        left: 15px;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 20px;
+        display: flex; }
+        .thermometer .meter .bg .bar .indicator {
+          background-color: #F22232;
+          width: 100%;
+          align-self: flex-end; }
+
+/**
+* ANGLEMETER Styling
+*/
+.anglemeter {
+  display: flex;
+  flex-direction: row; }
+  .anglemeter .meter .circle {
+    display: block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5); }
+    .anglemeter .meter .circle .indicator {
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: #fff;
+      transform-origin: center right;
+      margin-top: 50px;
+      position: relative; }
+      .anglemeter .meter .circle .indicator:after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #F22232;
+        position: absolute;
+        top: -3.5px;
+        left: -5px; }
+
+/**
+* FUELMETER Styling
+*/
+.fuelmeter {
+  display: flex;
+  flex-direction: row; }
+  .fuelmeter .barrel {
+    width: 75px;
+    height: 100px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0); }
+    .fuelmeter .barrel .wave {
+      opacity: .4;
+      position: absolute;
+      top: 3%;
+      left: 50%;
+      background: rgba(0, 0, 0, 0.5);
+      width: 400px;
+      height: 400px;
+      margin-left: -200px;
+      margin-top: 75px;
+      transform-origin: 50% 48%;
+      border-radius: 43%;
+      animation: drift 3000ms infinite linear; }
+      .fuelmeter .barrel .wave.three {
+        animation: drift 5000ms infinite linear; }
+      .fuelmeter .barrel .wave.two {
+        animation: drift 7000ms infinite linear;
+        opacity: .1;
+        background: rgba(0, 0, 0, 0.5); }
+    .fuelmeter .barrel .droplet {
+      background-image: url("images/droplet.png");
+      background-repeat: no-repeat;
+      width: 24px;
+      height: 34px;
+      z-index: 1;
+      margin: auto;
+      margin-top: 20px; }
+
+/**
+* SPEEDOMETER Styling
+ */
+.speedometer .meter {
+  width: 400px;
+  height: 400px;
+  background-image: url("images/indicator.png");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .speedometer .meter .slider {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: url("images/slider.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative; }
+    .speedometer .meter .slider .indicator {
+      display: block;
+      width: 3px;
+      height: 100px;
+      transform-origin: bottom center;
+      margin: 106px auto auto;
+      transform: rotate(-122deg);
+      /* 15 --> 10 km/h */
+      position: relative; }
+      .speedometer .meter .slider .indicator:after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #F22232;
+        border-radius: 50%;
+        position: absolute;
+        top: -5px;
+        left: -4.5px;
+        box-shadow: 0 0 20px rgba(242, 34, 50, 0.5), 0 0 16px rgba(242, 34, 50, 0.2), 0 0 8px rgba(242, 34, 50, 0.1); }
+    .speedometer .meter .slider .info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff; }
+      .speedometer .meter .slider .info h1 {
+        font-size: 3rem; }
+        .speedometer .meter .slider .info h1 small {
+          font-size: 1rem;
+          display: block;
+          color: rgba(255, 255, 255, 0.5); }
+
+/**
+* LED Styling
+ */
+.led .meter .circle {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; }
+.led .meter.on .circle {
+  background-color: #24BDB7;
+  box-shadow: 0 0 32px rgba(36, 189, 183, 0.5), 0 0 16px rgba(36, 189, 183, 0.3), 0 0 8px rgba(36, 189, 183, 0.2); }
+.led .meter.on h2 {
+  color: #24BDB7;
+  text-align: center; }
+.led .meter.off .circle {
+  background-color: #F22232;
+  box-shadow: 0 0 32px rgba(242, 34, 50, 0.5), 0 0 16px rgba(242, 34, 50, 0.3), 0 0 16px rgba(242, 34, 50, 0.2); }
+.led .meter.off h2 {
+  color: #F22232;
+  text-align: center; }
+
+/*# sourceMappingURL=main.css.map */
