@@ -38,6 +38,7 @@ var Meter = function(options){
     this.show();
 
 };
+
 Meter.prototype.setValue = function (value) {
     this.value = value;
     this.show();
@@ -100,8 +101,8 @@ Meter.prototype.show = function(){
                 this.title = this.terms[this.lang]["TEMPERATURE"];
             }
 
-             percent = percent > 100  ? 100 : percent;
-             percent = percent < 0  ? 0 : percent;
+            percent = percent > 100  ? 100 : percent;
+            percent = percent < 0  ? 0 : percent;
 
 
             content += '<div class="meter">';
@@ -130,7 +131,7 @@ Meter.prototype.show = function(){
             if(!this.title){
                 this.title = this.terms[this.lang]["SPEED"];
             }
-        	if(this.value <=180){
+            if(this.value <=180){
                 angle = (this.value * 1.5) - 122;
             }else{
                 angle = (180 * 1.5) - 122;
